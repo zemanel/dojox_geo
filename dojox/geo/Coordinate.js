@@ -21,6 +21,12 @@ dojo.declare("dojox.geo.Coordinate", null, {
     return this._coordinate * 180 / Math.PI;
   },
 
+  // Returns an Coordinate object as a delta of another Coordinate object
+  deltaOf: function(/*Object*/ anotherCoordinate) {
+    // ugly hack
+    return new dojox.geo.Coordinate(this - anotherCoordinate);
+  },
+
   //
   toString: function() {
     return this._coordinate.toString();

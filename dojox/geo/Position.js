@@ -1,5 +1,7 @@
 dojo.provide("dojox.geo.Position");
 
+dojo.require("dojox.geo.Coordinate");
+
 // Represents a position in space
 dojo.declare("dojox.geo.Position", null, {
   
@@ -7,7 +9,8 @@ dojo.declare("dojox.geo.Position", null, {
   _longitude: null,
 
   //
-  constructor: function(latitude, longitude) {
+  constructor: function(/*Object*/ latitude, /*Object*/ longitude) {
+    //TODO check params as instanceof dojox.geo.Coordinate
     this._latitude = latitude;
     this._longitude = longitude;
   },
@@ -25,7 +28,7 @@ dojo.declare("dojox.geo.Position", null, {
   // Returns the distance in KM between this Position and another
   // As seen on Chris Veness, http://www.movable-type.co.uk/scripts/latlong.html
   distanceToInKM: function(/*Object*/ anotherPosition) {
-
+    //TODO: finish me
     var R = 6371; // km
     var dLat = (lat2-lat1).toRad();
     var dLon = (lon2-lon1).toRad();
