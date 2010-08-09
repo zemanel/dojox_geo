@@ -2,7 +2,7 @@ dojo.provide("dojox.geo.HTML5PositionLocator");
 
 dojo.require("dojox.geo.Coordinate");
 
-// geo position locator that supports HTML5
+// geo position locator for HTML5 support
 dojo.declare("dojox.geo.HTML5PositionLocator", null, {
 
   // Constructor
@@ -22,6 +22,16 @@ dojo.declare("dojox.geo.HTML5PositionLocator", null, {
   //
   isCitySupportAvailable: function() {
     return FALSE;
+  },
+
+  //
+  getCurrentPosition: function(callback, errBack, options) {
+    navigator.geolocation.getCurrentPosition(callback, errBack, options);
+  },
+
+  //
+  watchPosition: function(callback, errBack, options) {
+    return navigator.geolocation.watchPosition(callback, errBack, options);
   }
 
 });

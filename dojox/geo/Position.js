@@ -7,12 +7,16 @@ dojo.declare("dojox.geo.Position", null, {
   
   _latitude: null,
   _longitude: null,
+  _timestamp: null,
+  _altitude: null,
+  _altitudeAccuracy: null,
+  _heading: null,
+  _speed: null,
 
   //
-  constructor: function(/*Object*/ latitude, /*Object*/ longitude) {
-    //TODO check params as instanceof dojox.geo.Coordinate
-    this._latitude = latitude;
-    this._longitude = longitude;
+  constructor: function(/*Number*/ latitude, /*Number*/ longitude) {
+    this._latitude = new dojox.geo.Coordinate(latitude);
+    this._longitude = new dojox.geo.Coordinate(longitude);
   },
 
   // Returns the latitude
@@ -37,6 +41,7 @@ dojo.declare("dojox.geo.Position", null, {
             Math.sin(dLon/2) * Math.sin(dLon/2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c;
+    return d;
   }
 
 });
