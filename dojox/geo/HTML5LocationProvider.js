@@ -1,9 +1,18 @@
-dojo.provide("dojox.geo.HTML5PositionLocator");
+dojo.provide("dojox.geo.HTML5LocationProvider");
 
 dojo.require("dojox.geo.Coordinate");
 
 // geo position locator for HTML5 support
-dojo.declare("dojox.geo.HTML5PositionLocator", null, {
+dojo.declare("dojox.geo.HTML5LocationProvider", null, {
+
+  _features: {
+    'position.coords.latitude': true,
+    'position.coords.longitude': true,
+    'position.coords.altitude': true,
+    'position.coords.altitudeAccuracy': true,
+    'position.coords.heading': true,
+    'position.coords.speed': true
+  },
 
   // Constructor
   constructor: function() {
