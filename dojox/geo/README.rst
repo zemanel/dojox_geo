@@ -34,10 +34,23 @@ Thoughts on the wrapper implementation
 
 * Of the several geolocation providers, some have requirements for initialization (API key) and use (comercial license
 or linking to the providers website).
-The implementation must allowing the developer to choose and initialize the providers he requires.
+The implementation must allow the developer to choose and initialize the providers he requires.
 
 * Providers return mixed information and HTML5 support is dependent on browser vendor implementation level.
 For example, Google and Maxmind provide location names (city, region) which HTML5 does not.
 Aparently only Maxmind provides region code.
-The implementation must normalize data
+The implementation must normalize data.
+
+* HTML5 geolocation API supports several interesting features, that can be used to normalize access to geolocation data,
+across the several providers:
+
+  - Allow the developer to request the current position, by passing a callback that gets handled when the information
+  is available
+
+  - Allow the developer to request a recurring "watch" on the current position, by passing a callback that gets
+  handled everytime the provider detects that the current position has changed
+
+
+
+
 
