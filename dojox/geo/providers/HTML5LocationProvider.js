@@ -1,37 +1,26 @@
-dojo.provide("dojox.geo.HTML5LocationProvider");
+dojo.provide("dojox.geo.providers.HTML5LocationProvider");
 
 dojo.require("dojox.geo.Coordinate");
 
-// geo position locator for HTML5 support
-dojo.declare("dojox.geo.HTML5LocationProvider", null, {
-
-  _features: {
-    'position.coords.latitude': true,
-    'position.coords.longitude': true,
-    'position.coords.altitude': true,
-    'position.coords.altitudeAccuracy': true,
-    'position.coords.heading': true,
-    'position.coords.speed': true
-  },
+// HTML5 navigator provider
+dojo.declare("dojox.geo.providers.HTML5LocationProvider", null, {
 
   // Constructor
   constructor: function() {
+    this._features =  {
+      'position.coords.coordinates': true,
+      'position.coords.altitude': true,
+      'position.coords.altitudeAccuracy': true,
+      'position.coords.heading': true,
+      'position.coords.speed': true
+    };
+
   },
 
   // Features
   //TODO: maybe use 'features' list like dojox.data for the available position attributes?
-  isCoordenateSupportAvailable: function() {
+  isCoordinateSupportAvailable: function() {
     return navigator!=="undefined" && navigator.geolocation!=="undefined";
-  },
-
-  //
-  isCountrySupportAvailable: function() {
-    return FALSE;
-  },
-
-  //
-  isCitySupportAvailable: function() {
-    return FALSE;
   },
 
   // Wrapps a call to HTML5 'navigator.geolocation.getCurrentPosition'

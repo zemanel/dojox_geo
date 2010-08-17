@@ -1,4 +1,4 @@
-dojo.provide("dojox.geo.GooglePositionLocator");
+dojo.provide("dojox.geo.providers.GoogleLocationProvider");
 
 dojo.require("dojox.geo.Coordinate");
 

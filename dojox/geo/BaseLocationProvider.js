@@ -7,8 +7,7 @@ dojo.declare("dojox.geo.BaseLocationProvider", null, {
 
   //  Available features:
   //    * From HTML5 spec and so
-  //    position.coords.latitude
-  //    position.coords.longitude
+  //    position.coords.coordinates
   //    position.coords.altitude
   //    position.coords.altitudeAccuracy
   //    position.coords.heading
